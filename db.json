@@ -1,1 +1,9 @@
-{}
+{
+  "sanpham": [
+    {
+      "maSanPham": "1",
+      "Ten": "Áo thun nam",
+      "Gia": 150000
+    }
+  ]
+}
