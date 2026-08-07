@@ -49,3 +49,50 @@ document.addEventListener("DOMContentLoaded", function () {
     // Khởi chạy auto-play lần đầu
     startAutoPlay();
 });
+
+// JS và JSON cho phần sản phẩm
+document.addEventListener("DOMContentLoaded", function () {
+    const productGrid = document.querySelector(".product-grid"); // Chọn đúng class khung chứa sản phẩm của bạn
+
+    if (!productGrid) return;
+
+    // Gọi API (GET) từ json-server với endpoint "sanpham"
+    fetch("http://localhost:3000/sanpham")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Lỗi kết nối tới server!");
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Xóa nội dung mẫu tĩnh cũ (nếu có)
+            productGrid.innerHTML = "";
+
+            // Duyệt mảng sản phẩm từ JSON và tạo thẻ HTML tương ứng
+            data.forEach(item => {
+                const card = document.createElement("div");
+                card.className = "product-card";
+
+                // Gắn sự kiện click chuyển sang trang chi tiết kèm theo mã sản phẩm (ID)
+                card.addEventListener("click", () => {
+                    window.location.href = `product-detail.html?id=${item.maSanPham}`;
+                });
+
+card.innerHTML = `
+    <div class="product-img">
+        <img src="${item.hinhAnh}" alt="${item.Ten}">
+        <button class="quick-add" onclick="event.stopPropagation()">+</button>
+    </div>
+    <div class="product-details">
+        <h4 class="product-name">${item.Ten}</h4>
+        <span class="product-price">${Number(item.Gia).toLocaleString('vi-VN')}đ</span>
+    </div>
+`;
+
+                productGrid.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error("Không thể tải dữ liệu sản phẩm:", error);
+        });
+});
