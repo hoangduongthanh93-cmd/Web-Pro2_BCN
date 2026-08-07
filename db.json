@@ -3,7 +3,29 @@
     {
       "maSanPham": "1",
       "Ten": "Áo thun nam",
-      "Gia": 150000
+      "Gia": 150000,
+      "hinhAnh" : "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1920&auto=format&fit=crop"
+    }
+  ]
+},
+
+{
+  "sanpham": [
+    {
+      "maSanPham": "2",
+      "Ten": "Quần jean nữ",
+      "Gia": 300000,
+      "hinhAnh" : "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1920&auto=format&fit=crop"
+    }
+  ]
+},
+{
+  "sanpham": [
+    {
+      "maSanPham": "3",
+      "Ten": "Váy dạ hội",
+      "Gia": 500000,
+      "hinhAnh" : "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1920&auto=format&fit=crop"
     }
   ]
 }

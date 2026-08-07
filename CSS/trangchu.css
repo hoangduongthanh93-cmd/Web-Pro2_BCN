@@ -106,68 +106,193 @@ a {
     background-color: var(--text-dark);
 }
 
-
-.hero {
-    display: flex;
-    align-items: center;
-    min-height: 80vh;
-    background-color: var(--bg-light);
+/* --- HERO SLIDER STYLES --- */
+.hero-slider {
+    flex: 1;
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
 }
 
+.slider-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Nút bấm Next / Prev */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: #ffffff;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 712px; /* Chuẩn chiều cao từ thông số layout Figma */
+    background-color: #000;
+    overflow: hidden;
+}
+
+/* Slider bao phủ toàn bộ khung hero */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Khối chữ đặt đè lên ảnh theo đúng thiết kế Figma */
 .hero-content {
-    flex: 1;
-    padding: 60px 8%;
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    z-index: 10;
+    max-width: 600px;
+    color: #ffffff;
 }
 
 .hero-content .sub-title {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--text-muted);
     margin-bottom: 12px;
+    opacity: 0.9;
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 20px;
+    line-height: 1.2;
+    margin-bottom: 24px;
     letter-spacing: -0.5px;
-}
-
-.hero-content p {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-bottom: 32px;
-    max-width: 440px;
 }
 
 .btn-primary {
     display: inline-block;
     padding: 14px 32px;
-    background-color: var(--text-dark);
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #111111;
     font-size: 0.85rem;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #333333;
+    background-color: #111111;
+    color: #ffffff;
 }
 
-.hero-image {
-    flex: 1;
-    height: 100%;
+/* Nút điều hướng Slider */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    z-index: 10;
 }
 
-.hero-image img {
-    width: 100%;
-    height: 80vh;
-    object-fit: cover;
-    object-position: center top;
+.slider-btn:hover {
+    background: #ffffff;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
 }
 
 
@@ -232,9 +357,6 @@ a {
     text-decoration: underline;
 }
 
-/* ----------------------------------
-   FEATURE CATEGORIES (3 CỘT)
----------------------------------- */
 .feature-categories {
     padding: 0 5% 60px;
 }
@@ -276,9 +398,7 @@ a {
     text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
-/* ----------------------------------
-   PRODUCT SHOWCASE ("What to Wear Now")
----------------------------------- */
+
 .product-showcase {
     padding: 40px 5% 80px;
 }
@@ -354,9 +474,7 @@ a {
     color: #666666;
     font-weight: 400;
 }
-/* ----------------------------------
-   DUAL BANNER SECTION
----------------------------------- */
+
 .dual-banner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -373,7 +491,7 @@ a {
     width: 100%;
     height: 550px;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     transition: transform 0.5s ease;
 }
 
@@ -391,9 +509,7 @@ a {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* ----------------------------------
-   BRAND VALUES SECTION
----------------------------------- */
+
 .brand-values {
     text-align: center;
     max-width: 680px;
@@ -414,9 +530,6 @@ a {
     line-height: 1.6;
 }
 
-/* ----------------------------------
-   INSTAGRAM SECTION
----------------------------------- */
 .instagram-section {
     padding: 0 5% 100px;
     text-align: center;
@@ -445,9 +558,7 @@ a {
     opacity: 0.85;
 }
 
-/* ----------------------------------
-   FOOTER
----------------------------------- */
+
 .site-footer {
     background-color: #fafafa;
     border-top: 1px solid #e5e5e5;
@@ -612,9 +723,7 @@ a {
     }
 }
 
-/* ----------------------------------
-   RESPONSIVE (FOOTER & BANNERS)
----------------------------------- */
+
 @media (max-width: 1024px) {
     .banner-item img {
         height: 400px;
@@ -638,5 +747,22 @@ a {
     .footer-container {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .hero-slider {
+        width: 100%;
+        height: 380px;
+    }
+}
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .hero {
+        height: 500px;
+    }
+    .hero-content {
+        left: 20px;
+        bottom: 40px;
+        right: 20px;
     }
 }
