@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/trangdanhsachSP.css">
-    <title>Document</title>
-</head>
-<body>
-   <div class="top-bar">
+function themHeader() {
+    const header = document.getElementById("header")
+
+    header.innerHTML=`    <div class="top-bar">
         <span>Complimentary U.S. No-Rush Shipping on orders of $145 or more.</span>
         <a href="#">Shop Now</a>
     </div>
@@ -22,10 +16,10 @@
         <a href="#" class="logo">CEIN.</a>
 
         <nav class="nav-links">
-            <a href="../trangdanhsachSP.html">Shop</a>
-            <a href="../sanphamMoi.html">New Arrivals</a>
-            <a href="../sanphamSale.html">Sale</a>
-            <a href="../trangbaiViet.html">Journal</a>
+            <a href="../HTML/trangdanhsachSP.html">Shop</a>
+            <a href="../HTML/sanphamMoi.html">New Arrivals</a>
+            <a href="../HTML/sanphamSale.html">Sale</a>
+            <a href="../HTML/trangbaiViet.html">Journal</a>
         </nav>
 
         <div class="nav-icons">
@@ -36,6 +30,5 @@
 
         </div>
     </header>
-    </header>
-</body>
-</html>
+`;
+    }
