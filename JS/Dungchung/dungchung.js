@@ -1,5 +1,5 @@
 
-    const header = document.getElementById("header")
+    const header = document.getElementById("header");
 
     header.innerHTML=`    <div class="top-bar">
         <span>Complimentary U.S. No-Rush Shipping on orders of $145 or more.</span>
@@ -37,6 +37,50 @@
         </div>
     </header>
 `;
+const footer = document.getElementById("footer");
+footer.innerHTML=`
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <span class="footer-logo">CEIN.</span>
+                <p>Timeless fashion crafted for longevity and sustainability.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best-Sellers</a></li>
+                    <li><a href="#">Clothing</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col newsletter-col">
+                <h4>Join Us</h4>
+                <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 CEIN. All rights reserved.</p>
+        </div>
+    </footer>
+`;
 document.addEventListener("DOMContentLoaded", () => {
     const NhapvaoTimkiem = document.getElementById("NhapvaoTimkiem");
     const Ketquatimkiem = document.getElementById("Ketquatimkiem");
@@ -73,7 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span class="TenSPcanTim">${item.Ten}</span>
                     <span class ="GiaCuaSP">${Number(item.Gia).toLocaleString("vi-VN")}</span>
                     </div>
-                    `
+                    `;
+            item.addEventListener("click", () => {
+            window.location.href = `TrangchitietSP.html?id=${sanpham.maSanPham}`;
+        });
                     Ketquatimkiem.appendChild(ThongTinSP_Datimduoc);
                 });
             }
