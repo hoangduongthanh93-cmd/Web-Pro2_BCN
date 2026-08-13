@@ -87,10 +87,124 @@ a {
 
 .nav-icons {
     display: flex;
+    align-items: center;
     gap: 20px;
-    font-size: 0.9rem;
 }
+.thanhtimkiem{
+    display: flex;
+    height: 20px;
+    position: relative;
+}
+.nutTimKiem{
+    background:transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+.nutTimKiem img{
+    width: 20px;
+    height: 20px;
+}
+.icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+.icon-link img{
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.thanhtimkiem input[type="text"]{
+    border:none;
+    background: none;
+    outline: none;
+    padding: 0;
+    width: 0;
+    font-size: 0.85rem;
+    transition:width 0.8s ease , padding 0.8s ease;
+    order:-1;
+}
+.thanhtimkiem:hover input[type="text"],
+.thanhtimkiem input[type="text"]:focus{
+    width: 200px;
+    padding-right:8px;
+    border-bottom: 2px solid var(--border-color);
+}
+#Ketquatimkiem{
+    position: absolute;
+    top:35px;
+    right: 0;
+    max-height: 400px;
+    width: 380px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    z-index: 9999;
+    display: none;
+    overflow-y: auto;
+}
+.sanphamTimKiem{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.sanphamTimKiem:hover{
+    background-color: #f7f7f7;
 
+}
+.thongTinTimKiem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.TenSPcanTim{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.TenSPcanTim:hover{
+    background-color: #f5f5f5;
+}
+.GiaCuaSP{
+    font-size: 14px;
+    color: #666666;
+}
+.KhongCoThongtinTimKiem{
+    padding: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666666;
+}
+.Sanphamtimduoc{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+}
+.Sanphamtimduoc img{
+    width: 70px;
+    height: 80px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
 .menu-toggle {
     display: none;
     flex-direction: column;
