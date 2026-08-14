@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --bg-light: #f9f9f9;
+    --text-dark: #111111;
+    --text-muted: #666666;
+    --border-color: #e5e5e5;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: #ffffff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+html {
+    scroll-behavior: smooth;
+}
+.banner-choweb {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    padding: 10px 160px 100px 160px;
+    box-sizing: border-box;
+}
+
+.truotanh {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.truotanh-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.truotanh-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.truotanh-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    border-radius: 20px;
+}
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: white;
+}
+
+.prev-btn {
+    left: 25px;
+}
+
+.next-btn {
+    right: 25px;
+}
+.container-cha{
+    background-color: rgb(220, 219, 219);
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.thanhloc-bentrai{
+    width: 15%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid;
+}
+.item-thanhloc{
+    width: 25%;
+}
+.danhsachSP-benphai{
+    width: 85%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 10px;
+}
+.Item-SP{
+    max-width: 190px;
+    max-height: 180px;
+    width:100%;
+    padding: 10px;
+    border: 1px solid #111111;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: all 1s ease;
+}
+.Item-SP img{
+    object-fit: cover;
+}
+.Item-SP:hover{
+    transform: scale(1.05);
+}
