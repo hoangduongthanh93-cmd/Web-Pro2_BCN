@@ -1,7 +1,8 @@
 
     const header = document.getElementById("header");
 
-    header.innerHTML=`    <div class="top-bar">
+    header.innerHTML=`<div class="site-header">
+    <div class="top-bar">
         <span>Complimentary U.S. No-Rush Shipping on orders of $145 or more.</span>
         <a href="#">Shop Now</a>
     </div>
@@ -24,18 +25,18 @@
 
         <div class="nav-icons">
             <div class="thanhtimkiem">
-            <input id="NhapvaoTimkiem" type="text" placeholder="Tìm kiếm sản phẩm...">
-            <button type="submit" class="nutTimKiem">
-            <img src="../img/iconHeader/MagnifyingGlass.svg" alt="icon tìm kiếm">
-            </button>
-            <div id="Ketquatimkiem"></div>
+                <input id="NhapvaoTimkiem" type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button type="submit" class="nutTimKiem">
+                    <img src="../img/iconHeader/MagnifyingGlass.svg" alt="icon tìm kiếm">
+                </button>
+                <div id="Ketquatimkiem"></div>
             </div>
             <a href="#" class="icon-link"><img src="../img/iconHeader/UserCircle.svg" alt="User"></a>
             <a href="" class="icon-link" id="theme-toggle"><img src="../img/iconHeader/Heart.svg" alt="Heart"></a>
             <a href="#" class="icon-link"><img src="../img/iconHeader/Bag.svg" alt="Bag"></a>
-
         </div>
     </header>
+</div>
 `;
 const footer = document.getElementById("footer");
 footer.innerHTML=`
@@ -82,59 +83,84 @@ footer.innerHTML=`
     </footer>
 `;
 document.addEventListener("DOMContentLoaded", () => {
+    const nutTimKiem = document.querySelector('.nutTimKiem');
+    const thanhTimKiem = document.querySelector('.thanhtimkiem');
     const NhapvaoTimkiem = document.getElementById("NhapvaoTimkiem");
     const Ketquatimkiem = document.getElementById("Ketquatimkiem");
     let danhSachSanPham = [];
-    fetch("http://localhost:3000/sanpham").then(response => response.json()).then(data => {
+    nutTimKiem.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        thanhTimKiem.classList.toggle('active');
+        if (thanhTimKiem.classList.contains('active')) {
+            NhapvaoTimkiem.focus();
+        } else {
+            Ketquatimkiem.style.display = "none";
+            NhapvaoTimkiem.value = "";
+        }
+    });
+    thanhTimKiem.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    fetch("http://localhost:3000/sanpham")
+        .then(response => response.json())
+        .then(data => {
             danhSachSanPham = data;
         })
         .catch(error => {
-            console.error("không tải dữ liệu được",error );});
-            NhapvaoTimkiem.addEventListener("input",(event)=>{
-                const Tukhoa=event.target.value.toLowerCase().trim();
-                if (Tukhoa === ""){
-                    Ketquatimkiem.innerHTML="";
-                    Ketquatimkiem.style.display="none";
-                    return null;
-                }
-            
-            const KetquaSP = danhSachSanPham.filter(item=>{
-                const thongtinSp_Name=item.Ten.toLowerCase().trim();
-                const thongtinSp_Description=item.moTa ? item.moTa.toLowerCase().trim() : "";
-                return(thongtinSp_Name.includes(Tukhoa) || thongtinSp_Description.includes(Tukhoa));
-            });
-            Ketquatimkiem.innerHTML="";
-            if(KetquaSP.length===0){
-                Ketquatimkiem.innerHTML=`<div class="KhongCoThongtinTimKiem"><p>Không tìm thấy sản phẩm</p></div>`;
-            }
-            else{
-                KetquaSP.forEach(item =>{
-                    const ThongTinSP_Datimduoc = document.createElement("div");
-                    ThongTinSP_Datimduoc.classList.add("Sanphamtimduoc");
-                    ThongTinSP_Datimduoc.innerHTML=`
+            console.error("Không tải dữ liệu được", error);
+        });
+    NhapvaoTimkiem.addEventListener("input", (event) => {
+        const Tukhoa = event.target.value.toLowerCase().trim();
+        if (Tukhoa === "") {
+            Ketquatimkiem.innerHTML = "";
+            Ketquatimkiem.style.display = "none";
+            return;
+        }
+        const KetquaSP = danhSachSanPham.filter(item => {
+            const thongtinSp_Name = item.Ten ? item.Ten.toLowerCase().trim() : "";
+            const thongtinSp_Description = item.moTa ? item.moTa.toLowerCase().trim() : "";
+            return (thongtinSp_Name.includes(Tukhoa) || thongtinSp_Description.includes(Tukhoa));
+        });
+        Ketquatimkiem.innerHTML = "";
+        
+        if (KetquaSP.length === 0) {
+            Ketquatimkiem.innerHTML = `<div class="KhongCoThongtinTimKiem"><p>Không tìm thấy sản phẩm</p></div>`;
+        } else {
+        const TongSoDiv = document.createElement("div");
+        TongSoDiv.classList.add("TongSoKetQua");
+        TongSoDiv.innerHTML = `
+            <span>${KetquaSP.length} results</span>
+            <a href="trangdanhsachSP.html?tuKhoa=${encodeURIComponent(Tukhoa)}" class="view-all-link">View all</a>
+        `;
+        Ketquatimkiem.appendChild(TongSoDiv);
+            const DanhSachNgangDiv = document.createElement("div");
+            DanhSachNgangDiv.classList.add("danhsach-ngang");
+            KetquaSP.forEach(item => {
+                const ThongTinSP_Datimduoc = document.createElement("div");
+                ThongTinSP_Datimduoc.classList.add("Sanphamtimduoc");
+                ThongTinSP_Datimduoc.innerHTML = `
                     <img src="${item.hinhAnh}" alt="${item.Ten}">
                     <div class="thongTinTimKiem">
-                    <span class="TenSPcanTim">${item.Ten}</span>
-                    <span class ="GiaCuaSP">${Number(item.Gia).toLocaleString("vi-VN")}</span>
+                        <span class="TenSPcanTim">${item.Ten}</span>
+                        <span class="GiaCuaSP">${Number(item.Gia).toLocaleString("vi-VN")} đ</span>
                     </div>
-                    `;
-            item.addEventListener("click", () => {
-            window.location.href = `TrangchitietSP.html?id=${sanpham.maSanPham}`;
-        });
-                    Ketquatimkiem.appendChild(ThongTinSP_Datimduoc);
+                `;
+                ThongTinSP_Datimduoc.addEventListener("click", () => {
+                    window.location.href = `TrangchitietSP.html?id=${item.maSanPham}`;
                 });
-            }
-            Ketquatimkiem.style.display="block";
-        });
-            document.addEventListener("click",(event)=> {
-            if(!event.target.closest(".thanhtimkiem")){
-                Ketquatimkiem.style.display="none";}    
+
+                DanhSachNgangDiv.appendChild(ThongTinSP_Datimduoc);
             });
-            Ketquatimkiem.addEventListener("focus",()=>{
-                const Tukhoa = NhapvaoTimkiem.value.trim();
-                if(Tukhoa !== ""){
-                    Ketquatimkiem.style.display="block";
-                }
-            });
-            
-        });
+
+            Ketquatimkiem.appendChild(DanhSachNgangDiv);
+        }
+        Ketquatimkiem.style.display = "block";
+    });
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest(".thanhtimkiem")) {
+            thanhTimKiem.classList.remove('active');
+            Ketquatimkiem.style.display = "none";
+        }
+    });
+});
