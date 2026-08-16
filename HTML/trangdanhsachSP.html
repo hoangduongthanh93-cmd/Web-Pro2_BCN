@@ -3,49 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page - Fashion Store</title>
-        <!-- file css sẽ sử dụng & tái sử dụng -->
+    <title>Shop - Fashion Store</title>
     <link rel="stylesheet" href="../CSS/trangdanhsachSP.css">
     <link rel="stylesheet" href="../CSS/header/dungchung.css">
-        <!-- file js sẽ sử dụng & tái sử dụng -->
     <script src="../JS/trangdanhsachSP.js" defer></script>
 </head>
 <body>
     <div id="header"></div>
-<div class="banner-choweb">
-    <div class="truotanh">
-        <div class="truotanh-slide active">
-            <img src="../img/anhSP/stocksnap-black-and-white-2558273_1920.jpg">
-        </div>
-        <div class="truotanh-slide">
-            <img src="../img/anhSP/bessi-woman-1063100_1920.jpg">
-        </div>
-        <div class="truotanh-slide">
-            <img src="../img/anhSP/canis24-woman-7016046_1920.jpg">
-        </div>
-        <button class="slider-btn prev-btn">&#10094;</button>
-        <button class="slider-btn next-btn">&#10095;</button>
-
-    </div>
-
-</div>
-    <div class="container-cha">
-        <div class="thanhloc-bentrai">
-            <h3>Bộ lọc</h3>
-            <label><input type="checkbox" value="Ao" class="item-thanhloc">Áo</label>
-            <label><input type="checkbox" value="Quan" class="item-thanhloc">Quần</label>
-            <label><input type="checkbox" value="Giay/Dep" class="item-thanhloc">Giày/Dép</label>
-            <label><input type="checkbox" value="Non" class="item-thanhloc">Nón</label>
-            <label><input type="checkbox" value="Kinh" class="item-thanhloc">Kính</label>
-        </div>
-        <div class="danhsachSP-benphai">
-            <div class="Item-SP">
-                <img src="../img/anhSP/1643606-fashion-2309519_1920.jpg">
-                <p>Áo thun nam</p>
-                <p>Giá tiền: 300,000</p>
+    <main class="container-cha">
+        <h1 class="Container-header-cha">Cửa hàng</h1>
+        <div class="Hoploc-bentrai">
+            <div class="MucGoiY" id="MucgoiY">
+                <button class="goiYactive" data-category="all">Tất cả</button>
+                <button class="goiY" data-category="Áo">Áo</button>
+                <button class="goiY" data-category="Quần">Quần</button>
+                <button class="goiY" data-category="Giày/Dép">Giày/Dép</button>
+                <button class="goiY" data-category="Nón">Nón</button>
+            </div>
+            <div class="Hoploc-benphai">
+                <div class="Sapxept">
+                    <button class="NutSapxep" id="NutSapxep">Sắp xếp</button>
+                    <div class="NutSapxep-Xuong" id="CuonSapxep">
+                        <div class="Luachonsapxepactive" data-value="MoiNhat">Mới nhất</div>
+                        <div class="Luachonsapxep" data-value="giaThaptoiCao">Giá: Thấp đến cao</div>
+                        <div class="Luachonsapxep" data-value="giaCaoXuongThap">Giá: Cao đến thấp</div>
+                        <div class="Luachonsapxep" data-value="TuAtoiZ">Tên: A - Z</div>
+                    </div>
+                </div>
+                <div class="divLoc">
+                    <button class="nutLoc" id="NutLocGiaTien">Lọc</button>
+                    <div class="nutLoc-Dropdown" id="nutLoc-Dropdown">
+                        <h4>Khoảng giá</h4>
+                        <label><input type="radio" name="GiaTien" value="all" checked> Tất cả mức giá</label>
+                        <label><input type="radio" name="GiaTien" value="duoi200"> Dưới 200,000 đ</label>
+                        <label><input type="radio" name="GiaTien" value="200toi500"> 200,000 đ - 500,000 đ</label>
+                        <label><input type="radio" name="GiaTien" value="qua500"> Trên 500,000 đ</label>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="danhsachSP-benphai" id="productGrid">
+        </div>
+    </main>
     <div id="footer"></div>
     <script src="../JS/Dungchung/dungchung.js"></script>
 </body>

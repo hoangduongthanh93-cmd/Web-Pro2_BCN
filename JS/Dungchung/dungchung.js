@@ -32,7 +32,7 @@
                 <div id="Ketquatimkiem"></div>
             </div>
             <a href="#" class="icon-link"><img src="../img/iconHeader/UserCircle.svg" alt="User"></a>
-            <a href="" class="icon-link" id="theme-toggle"><img src="../img/iconHeader/Heart.svg" alt="Heart"></a>
+            <a href="../HTML/tranggioHang.html" class="icon-link" id="theme-toggle"><img src="../img/iconHeader/Heart.svg" alt="Heart"></a>
             <a href="#" class="icon-link"><img src="../img/iconHeader/Bag.svg" alt="Bag"></a>
         </div>
     </header>

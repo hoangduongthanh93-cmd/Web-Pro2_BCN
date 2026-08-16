@@ -10,7 +10,6 @@
     --border-color: #e5e5e5;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
-
 body {
     font-family: var(--font-main);
     color: var(--text-dark);
@@ -21,116 +20,220 @@ body {
 html {
     scroll-behavior: smooth;
 }
-.banner-choweb {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    overflow: hidden;
-    padding: 10px 160px 100px 160px;
-    box-sizing: border-box;
+.container-cha {
+    max-width: 1400px;
+    margin: 30px auto 60px auto;
+    padding: 0 5%;
 }
-
-.truotanh {
-    width: 100%;
-    height: 100%;
-    position: relative;
+.Container-header-cha {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
 }
-
-.truotanh-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-    pointer-events: none;
-}
-
-.truotanh-slide.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.truotanh-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    display: block;
-    border-radius: 20px;
-}
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
+.Hoploc-bentrai {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    z-index: 10;
-}
-
-.slider-btn:hover {
-    background: white;
-}
-
-.prev-btn {
-    left: 25px;
-}
-
-.next-btn {
-    right: 25px;
-}
-.container-cha{
-    background-color: rgb(220, 219, 219);
-    max-width: 1200px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    border-radius: 10px;
-}
-.thanhloc-bentrai{
-    width: 15%;
-    height: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    border-right: 2px solid;
-}
-.item-thanhloc{
-    width: 25%;
-}
-.danhsachSP-benphai{
-    width: 85%;
-    height: auto;
-    display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+.MucGoiY {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.goiY, .goiYactive {
+    padding: 8px 18px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.goiY:hover, .goiYactive {
+    background-color: var(--text-dark);
+    color: #ffffff;
+}
+.Hoploc-benphai {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.Sapxept {
+    position: relative;
+}
+.NutSapxep {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.2s ease;
+}
+.NutSapxep:hover {
+    opacity: 0.6;
+}
+.NutSapxep-Xuong {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 210px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 8px 0;
+    border-radius: 6px;
+    display: none;
+    z-index: 100;
+    flex-direction: column;
+}
+.NutSapxep-Xuong.active {
+    display: flex;
+}
+.Luachonsapxep, .Luachonsapxepactive {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.Luachonsapxep:hover, 
+.Luachonsapxepactive {
+    background-color: #f7f7f7;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+.divLoc {
+    position: relative;
+}
+.nutLoc {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.2s ease;
+}
+
+.nutLoc:hover {
+    opacity: 0.6;
+}
+
+.nutLoc-Dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 240px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    border-radius: 6px;
+    display: none;
+    z-index: 100;
+    flex-direction: column;
     gap: 10px;
 }
-.Item-SP{
-    max-width: 190px;
-    max-height: 180px;
-    width:100%;
-    padding: 10px;
-    border: 1px solid #111111;
-    text-align: center;
-    box-sizing: border-box;
-    border-radius: 10px;
-    transition: all 1s ease;
+
+.nutLoc-Dropdown.active {
+    display: flex;
 }
-.Item-SP img{
+
+.nutLoc-Dropdown h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.nutLoc-Dropdown label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.nutLoc-Dropdown input[type="radio"] {
+    accent-color: var(--text-dark);
+    cursor: pointer;
+}
+.danhsachSP-benphai {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.Item-SP {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.product-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    background-color: var(--bg-light);
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.product-img-wrapper img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
-.Item-SP:hover{
-    transform: scale(1.05);
+
+.Item-SP:hover .product-img-wrapper img {
+    transform: scale(1.03);
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.product-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.product-price {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+@media (max-width: 1200px) {
+    .danhsachSP-benphai {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .danhsachSP-benphai {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .danhsachSP-benphai {
+        grid-template-columns: 1fr;
+    }
 }
