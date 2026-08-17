@@ -3,35 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page - Fashion Store</title>
-        <!-- file css sẽ sử dụng & tái sử dụng -->
-    <link rel="stylesheet" href="../CSS/TrangchitietSP.css">
+    <title>Chi tiết sản phẩm - Fashion Store</title>
+    <link rel="stylesheet" href="../CSS/trangchitietSP.css">
     <link rel="stylesheet" href="../CSS/header/dungchung.css">
-        <!-- file js sẽ sử dụng & tái sử dụng -->
-    <script src="../JS/TrangchitietSP.js" defer></script>
+    <script src="../JS/trangchitietSP.js" defer></script>
 </head>
 <body>
     <div id="header"></div>
-        <div class="container-cha">
-        <div class="container-con-tren">
-            <div class="container-con-img">
-            <img src="../img/anhSP/1643606-fashion-2309519_1920.jpg" alt="Ảnh thời trang" id="HinhAnhSP">
+    <main class="container_cha">
+        <div class="VitriWeb">
+            <a href="trangdanhsachSP.html">Shop</a> / <span>Clothing</span>
         </div>
-        <div class="container-con-noidung">
-            <h2 id="TenSP">Áo nữ</h2>
-            <p id="GiaSp">2,000,000</p>
-            <p id="ThongTinSP">Áo nữ với chất liệu bla bla bla</p>
-            <div class="Luachon">
-                <button id="Muangay">Mua Ngay</button>
-                <button id="themvaoGiohang">Thêm vào giỏ hàng</button>
-            </div>
+        <div class="ChitietSP-grid" id="chiTietSanPham">
+            <div class="loading-text">Đang tải thông tin sản phẩm...</div>
         </div>
-        </div>
-        <div class="container-con-mota">
-            <button class="MoTa">Mô tả thêm</button>
-        </div>
-    </div>
-        <div id="footer"></div>
+    </main>
+    <div id="footer"></div>
     <script src="../JS/Dungchung/dungchung.js"></script>
 </body>
-</html> 
+</html>
