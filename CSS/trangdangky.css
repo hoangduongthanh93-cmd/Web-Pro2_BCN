@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-light: #f7f7f7;
+    --text-dark: #111111;
+    --text-muted: #666666;
+    --border-color: #e5e5e5;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: #ffffff;
+}
+
+.container_xacthuc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 40px 20px;
+}
+
+.Hop {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.DangkyTaiKhoan_Titlte {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.bieuMau_XacThuc {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.O_DANGKY {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.O_DANGKY label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.O_DANGKY input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.O_DANGKY input:focus {
+    border-color: var(--text-dark);
+}
+
+.Nut_DangKy {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--text-dark);
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.Nut_DangKy:hover {
+    background-color: #333333;
+}
+
+.DoiPhuongThuc {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+}
+
+.DoiPhuongThuc a {
+    color: var(--text-dark);
+    text-decoration: underline;
+    font-weight: 500;
+}
