@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("header");
-    const currentUser = localStorage.getItem("currentUser");
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     header.innerHTML = `
     <div class="site-header">
@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <nav class="nav-links">
                 <a href="../HTML/trangdanhsachSP.html">Shop</a>
-                <a href="../HTML/sanphamMoi.html">New Arrivals</a>
-                <a href="../HTML/sanphamSale.html">Sale</a>
-                <a href="../HTML/trangbaiViet.html">Journal</a>
+                <a href="../HTML/comingsoon.html">New Arrivals</a>
+                <a href="../HTML/comingsoon.html">Sale</a>
+                <a href="../HTML/comingsoon.html">Journal</a>
             </nav>
 
             <div class="nav-icons">
@@ -33,19 +33,41 @@ document.addEventListener("DOMContentLoaded", () => {
                     </button>
                     <div id="Ketquatimkiem"></div>
                 </div>
-                <a href="../HTML/trangdangnhap.html" class="icon-link">
-                    <img src="../img/iconHeader/UserCircle.svg" alt="User">
-                </a>
-                <a href="../HTML/tranggioHang.html" class="icon-link" id="theme-toggle" style="display: ${currentUser ? 'flex' : 'none'};">
+
+                <div class="user-account-area">
+                    ${currentUser ? `
+                        <div class="user-logged-in">
+                            <span class="user-greeting">Hi, ${currentUser.name}</span>
+                            <button id="logoutBtn" class="logout-btn" title="Đăng xuất">Đăng xuất</button>
+                        </div>
+                    ` : `
+                        <a href="../HTML/trangdangnhap.html" class="icon-link">
+                            <img src="../img/iconHeader/UserCircle.svg" alt="User">
+                        </a>
+                    `}
+                </div>
+
+                <a href="../HTML/tranggioHang.html" class="icon-link cart-icon-wrapper" style="display: ${currentUser ? 'flex' : 'none'};">
                     <img src="../img/iconHeader/Heart.svg" alt="Heart">
                 </a>
-                <a href="../HTML/tranggioHang.html" class="icon-link" style="display: ${currentUser ? 'flex' : 'none'};">
+                <a href="../HTML/tranggioHang.html" class="icon-link cart-icon-wrapper" style="display: ${currentUser ? 'flex' : 'none'};">
                     <img src="../img/iconHeader/Bag.svg" alt="Bag">
                 </a>
             </div>
         </header>
     </div>
     `;
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("currentUser");
+            showToast("Đã đăng xuất thành công!", "success");
+            setTimeout(() => {
+                window.location.reload();
+            }, 1200);
+        });
+    }
 
     const footer = document.getElementById("footer");
     if (footer) {
@@ -184,3 +206,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function showToast(message, type = "success") {
+    let container = document.getElementById("toast-container");
+    if (!container) {
+        container = document.createElement("div");
+        container.id = "toast-container";
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add("show");
+    }, 10);
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+}
